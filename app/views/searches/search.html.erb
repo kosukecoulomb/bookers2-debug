@@ -1,0 +1,31 @@
+<h2>Books search for "<%= @range %>"</h2>
+
+<table class="col-lg-8 table table-border">
+  <% if @range == "User" %>
+    <% @users.each do |user| %>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:30%">name</th>
+        <th style="width:30%">introduction</th>
+      </tr>
+      <tr>
+        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td><%= link_to "#{user.name}", user_path(user) %></td>
+        <td><%= user.introduction %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <% @books.each do |book| %>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:30%">title</th>
+        <th style="width:30%">body</th>
+      </tr>
+      <tr>
+        <td><%= image_tag book.user.get_profile_image, size: '50x50' %><%= book.user.name %></td>
+        <td><%= link_to "#{book.title}", book_path(book) %></td>
+        <td><%= book.body %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
