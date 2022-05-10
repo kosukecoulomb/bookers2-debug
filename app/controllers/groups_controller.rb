@@ -48,8 +48,13 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    @group.users.delete(current_user)
-    redirect_to groups_path
+    if @group.owner_id == current_user.id
+      @group.destroy
+      redirect_to groups_path
+    else
+      @group.users.delete(current_user)
+      redirect_to groups_path
+    end
   end
   
   def new_mail
