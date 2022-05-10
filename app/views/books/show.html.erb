@@ -35,6 +35,21 @@
             <% end %>
           </td>
           <td>コメント:<%= @book.book_comments.count %></td>
+          <td class='show_book_evaluation'>
+          <span id='star_<%= @book.id %>'></span>
+            <script>
+              $('#star_<%= @book.id %>').raty({
+                size: 36,
+                starOff: "<%= asset_path('star-off.png') %>",
+                starOn: "<%= asset_path('star-on.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                half: true,
+                readOnly: true,
+                score: <%= @book.evaluation %>,
+              });
+            </script>
+            <%= @book.evaluation %>
+          </td>
         </tr>
       </table>
       <table class="table">

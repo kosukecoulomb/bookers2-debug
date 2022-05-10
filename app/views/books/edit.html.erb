@@ -5,5 +5,21 @@
   		<%= render 'form', book: @book %>
   		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
   		<%= link_to 'Back', books_path, class: "back" %>
+  		<div class='index_book_evaluation'>
+        <span id='star_<%= @book.id %>'></span>
+          <script>
+            $('#star_<%= @book.id %>').raty({
+              size: 36,
+              starOff: "<%= asset_path('star-off.png') %>",
+              starOn: "<%= asset_path('star-on.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              half: true,
+              readOnly: true,
+              score: <%= @book.evaluation %>,
+            });
+          </script>
+        <%= @book.evaluation %>
+      </div>
+    </div>
   </div>
 </div>
