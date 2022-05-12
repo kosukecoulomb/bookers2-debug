@@ -18,16 +18,16 @@
     <%= f.label :opinion %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
-  <div id="star">
+  <div class="form-group" id="star">
     <%= f.label :evoluation, "評価" %>
     <%= f.hidden_field :evaluation, id: :review_star %>
     <script>
       $('#star').raty({
         size : 36
-        starOff: '<% asset_path('star-off.png') %>',
-        starOn : '<% asset_path('star-on.png') %>',
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn: '<%= asset_path('star-on.png') %>',
         starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'post[evaluation]',
+        scoreName: 'book[evaluation]',
         half: true,
       });
     </script>

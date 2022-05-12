@@ -5,7 +5,7 @@
   		<%= render 'form', book: @book %>
   		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
   		<%= link_to 'Back', books_path, class: "back" %>
-  		<div class='index_book_evaluation'>
+  		<div class='_book_evaluation'>
         <span id='star_<%= @book.id %>'></span>
           <script>
             $('#star_<%= @book.id %>').raty({
